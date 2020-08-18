@@ -9,6 +9,7 @@ const Clock = (props) => {
 
   // getDate
   const date = moment().utcOffset(utcVal);
+  //ppp
   
   const hoursDegrees = date.hour() * 30 + date.minute() / 2;
   const minutesDegrees = date.minute() * 6 + date.second() / 10;

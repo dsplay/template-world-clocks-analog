@@ -53,7 +53,7 @@ function Main() {
       </div>
       <div className="date">
         <FitText className="time">
-          {date.utcOffset(wCitieslist.wUtcOffset).format("ddd, MM-DD hh:mm:ss a")}
+          {date.utcOffset(wCitieslist.wUtcOffset).format("YYYY-MM-DD hh:mm:ss a")}
         </FitText>
       </div>
     </div>
@@ -74,8 +74,8 @@ function Main() {
             <FitText>{cName}</FitText>
           </div>
           <div className="date">
-            <FitText className="time">
-              {date.utcOffset(cUtcOffset).format("ddd, MM-DD hh:mm:ss a")}
+            <FitText>
+              {date.utcOffset(cUtcOffset).format("YYYY-MM-DD hh:mm:ss a")}
             </FitText>
           </div>
         </div>

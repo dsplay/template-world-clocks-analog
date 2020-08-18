@@ -1,0 +1,178 @@
+@import ../../styles/effects
+
+.dsplay-fit-text-ready
+  @include animation(fadeIn 1s ease-in)
+
+#root 
+    -webkit-background-size: cover
+    -moz-background-size: cover
+    -o-background-size: cover
+    background-size: cover
+
+.app
+    padding: 0 !important
+    margin: 0 !important
+    overflow: hidden
+
+@mixin dsContainer
+    display: -ms-flexbox
+    display: -webkit-flex
+    display: flex
+    -webkit-flex-direction: row
+    -ms-flex-direction: row
+    flex-direction: row
+    -webkit-flex-wrap: wrap
+    -ms-flex-wrap: wrap
+    flex-wrap: wrap
+    -webkit-justify-content: flex-start
+    -ms-flex-pack: start
+    justify-content: flex-start
+    -webkit-align-content: stretch
+    -ms-flex-line-pack: stretch
+    align-content: stretch
+    -webkit-align-items: flex-start
+    -ms-flex-align: start
+    align-items: flex-start
+
+@mixin dsGridItem
+    -webkit-flex: 1 1 auto
+    -ms-flex: 1 1 auto
+    flex: 1 1 auto
+    -webkit-align-self: stretch
+    -ms-flex-item-align: stretch
+    align-self: stretch
+
+@mixin dsAlignCenter
+    display: -ms-flexbox
+    display: -webkit-flex
+    display: flex
+    -webkit-flex-direction: column
+    -ms-flex-direction: column
+    flex-direction: column
+    -webkit-flex-wrap: wrap
+    -ms-flex-wrap: wrap
+    flex-wrap: wrap
+    -webkit-justify-content: center
+    -ms-flex-pack: center
+    justify-content: center
+    -webkit-align-content: stretch
+    -ms-flex-line-pack: stretch
+    align-content: stretch
+    -webkit-align-items: center
+    -ms-flex-align: center
+    align-items: center
+
+@mixin dsGrid50
+    width: 50vw
+
+@mixin dsGrid100
+    width: 100vw
+
+@mixin portraitBrand
+    width: 100vw
+    height: 20vh
+
+@mixin hidden
+    display: none
+
+.ds-container
+    @include dsContainer
+    height: 100vh
+    width: 100vw
+
+.ds-grid-item
+    @include dsGridItem
+    height: 50vh
+    width: 25vw
+
+//DEFAULT TEMPLATE STYLES
+.clock-box
+    width: 100%
+    //background-color: #f801ae //-----------> debug
+.city
+    font-family: 'Oswald'
+    width: 100%
+    height: 10%
+    //background-color: #01f83f //-----------> debug
+.date
+    width: 100%
+    height: 7%
+    margin-top: 1vh
+    //background-color: #f8cb01 //-----------> debug
+    font-family: 'Oswald'
+.brand
+    height: 100vh
+    width: 100vw
+    background: url(../../images/logo-01.png) no-repeat center center local
+    -webkit-background-size: contain
+    -moz-background-size: contain
+    -o-background-size: contain
+    background-size: contain
+.time
+    text-transform: uppercase
+.local-timezone #clock
+    background-color: #292c2e
+
+//VIEWPORTS TEMPLATE STYLES
+
+.landscape
+    .clock-box
+        margin-top: 5vh
+    .city
+        margin-top: 2vh
+    .date
+    .brand
+        width: 30vh
+        height: 30vh
+        margin: 5vw
+
+.portrait
+    .ds-grid-item
+        height: 25vh
+        width: 50vw
+    .brand-box
+        @include portraitBrand
+    .clock-box
+        margin-bottom: 1vh
+    .city
+    .date
+    .brand
+        height: 20vh
+        width: 50vw
+        -webkit-flex: 1 1 auto
+        -ms-flex: 1 1 auto
+        flex: 1 1 auto
+        -webkit-align-self: center
+        -ms-flex-item-align: center
+        align-self: center
+    .ds-center
+        @include dsAlignCenter
+    .hidden-portrait
+        @include hidden
+
+.square
+    .ds-grid-item
+        @include dsGrid50
+        height: 50vh
+    .clock-box
+        padding-top: 5vh
+    .city
+    .date
+    .brand
+    .hidden-square
+        @include hidden
+
+.h-banner
+    .clock-box
+    .city
+    .date
+    .brand
+
+.v-banner
+    .clock-box
+    .city
+    .date
+    .brand
+
+
+//CLOCK STYLES

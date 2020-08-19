@@ -66,7 +66,7 @@ var dsplay_template = {
     },
     template_var: "My Template Var",
 
-    logo: '../test-assets/dsplay-logo.png',
+    // logo: '../test-assets/dsplay-logo.png',
 
     title: "My Super Template",
     expanded: "false",

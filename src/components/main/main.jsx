@@ -27,9 +27,11 @@ function Main() {
   const { times } = media;
 
   const wCitieslist = times.world_cities;
- 
 
   const { t, i18n } = useTranslation();
+  const brandImage = useTemplateVal("brand_image", "../../images/logo-01.png");
+  const bgClockColor = useTemplateVal("bg_clock_color", "#000000");
+
 
   i18n.changeLanguage(locale);
 
@@ -60,14 +62,14 @@ function Main() {
   ));
 
   return (
-    <div className="main">
+    <div className="main" style={{backgroundColor:bgClockColor}}>
       <div className="ds-container">
         <div className="ds-grid-item brand-box ds-center hidden-square">
-          <div className="brand "></div>
+          <div className="brand " style={{ backgroundImage: `url(${brandImage})`}}></div>
         </div>
 
         <div className="ds-grid-item">
-          <div className="clock-box">
+          <div className="clock-box current-location">
             <Clock className="local-timezone" utcVal={cUtcOffset} />
           </div>
           <div className="city">

@@ -2,14 +2,15 @@ import React, { useEffect, useState } from "react";
 import moment from "moment";
 import "./clock.sass";
 
-const Clock = (props) => {
-  const { className, utcVal, clockColor } = props;
+import {
+  useTemplateVal,
+} from "@dsplay/react-template-utils";
 
-  console.log(utcVal);
+const Clock = (props) => {
+  const { className, utcVal} = props;
 
   // getDate
   const date = moment().utcOffset(utcVal);
-  //ppp
   
   const hoursDegrees = date.hour() * 30 + date.minute() / 2;
   const minutesDegrees = date.minute() * 6 + date.second() / 10;
@@ -39,7 +40,7 @@ const Clock = (props) => {
   }, []);
 
   return (
-    <div {...props} className={`${className || ''}`}  clockColor={`${clockColor || ''}`}>
+    <div  className={`${className || ''}`} >
       <div>
         <div className="clock-container styling">
           <div id="clock" className="clock-content">

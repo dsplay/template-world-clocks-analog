@@ -68,7 +68,10 @@ var dsplay_template = {
 
     // logo: '../test-assets/dsplay-logo.png',
 
+    brand_image: "../test-assets/logo-01.png",
+
     title: "My Super Template",
     expanded: "false",
+    bg_clock_color: "#000000",
 
 };

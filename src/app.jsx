@@ -22,9 +22,6 @@ const fonts = [
   'Oswald',
 ];
 
-// other tasks (Promises) to run during template intro
-const tasks = [];
-
 function App() {
   const { screenFormat } = useScreenInfo();
   const logo = useTemplateVal('logo');
@@ -39,7 +36,6 @@ function App() {
         fonts={fonts}
         images={images}
         minDuration={MIN_LOADING_DURATION}
-        tasks={tasks}
       >
         <div className={`app fade-in ${screenFormat}`}>
           <Main />

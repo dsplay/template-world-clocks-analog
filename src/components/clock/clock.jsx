@@ -1,17 +1,10 @@
-import React, { useEffect, useState } from "react";
-import moment from "moment";
+import React from "react";
 import "./clock.sass";
 
-import {
-  useTemplateVal,
-} from "@dsplay/react-template-utils";
-
-const Clock = (props) => {
-  const { className, utcVal} = props;
-
-  // getDate
-  const date = moment().utcOffset(utcVal);
-  
+const Clock = ({
+  className = '',
+  date,
+}) => {
   const hoursDegrees = date.hour() * 30 + date.minute() / 2;
   const minutesDegrees = date.minute() * 6 + date.second() / 10;
   const secondsDegrees = date.second() * 6;
@@ -29,18 +22,8 @@ const Clock = (props) => {
     transform: 'rotateZ(' + secondsDegrees + 'deg)',
   };
 
-// useState and useEffect
-  const [seconds, setSeconds] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setSeconds((seconds) => seconds + 1);
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <div  className={`${className || ''}`} >
+    <div className={className} >
       <div>
         <div className="clock-container styling">
           <div id="clock" className="clock-content">

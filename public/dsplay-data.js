@@ -1,6 +1,6 @@
 var dsplay_config = {
   // config parameters
-  locale: 'pt_br',
+  locale: 'de_DE',
   orientation: window.innerHeight < window.innerWidth ? 'landscape' : 'portrait',
   // Android SDK version
   osVersion: 19,
@@ -47,7 +47,7 @@ var dsplay_media = {
         },
         {
           id: 7,
-          name: "Test - CA",
+          name: "Recife - BR",
           utcOffset: "-03:00"
         }
       ],

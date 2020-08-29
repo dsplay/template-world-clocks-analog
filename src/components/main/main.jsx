@@ -1,22 +1,21 @@
-import React, { useState, useEffect } from "react";
-import { useTranslation } from "react-i18next";
-import moment from "moment";
+import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import moment from 'moment';
 import {
   useMedia,
-  useConfig,
   useTemplateVal,
   useInterval,
-} from "@dsplay/react-template-utils";
+} from '@dsplay/react-template-utils';
 import City from '../city/city';
-import "./main.sass";
+import useLanguage from '../../hooks/use-language';
+import './main.sass';
 
 function Main() {
   const { t, i18n } = useTranslation();
-  const { locale = 'en_US' } = useConfig();
-  const [lng] = locale.split('_');
+  const language = useLanguage();
   useEffect(() => {
-    i18n.changeLanguage(lng)
-  }, [i18n, lng]);
+    i18n.changeLanguage(language);
+  }, [i18n, language]);
 
   const {
     result: {
@@ -26,8 +25,8 @@ function Main() {
     },
   } = useMedia();
 
-  const brandImage = useTemplateVal("brand_image");
-  const bgClockColor = useTemplateVal("bg_clock_color", "#000000");
+  const brandImage = useTemplateVal('brand_image');
+  const bgClockColor = useTemplateVal('bg_clock_color', '#000000');
 
   const [date, setDate] = useState(moment());
 
@@ -38,20 +37,27 @@ function Main() {
       <div className="ds-container">
 
         {
-          brandImage &&
+          brandImage
+          && (
           <div className="ds-grid-item brand-box ds-center hidden-square">
-            <div className="brand " style={{ backgroundImage: `url(${brandImage})` }}></div>
+            <div className="brand " style={{ backgroundImage: `url(${brandImage})` }} />
           </div>
+          )
         }
 
         <City
           date={date}
           name={t('Local Time')}
+          clockClassName="local-timezone"
         />
 
         {
           worldCities.map((city) => (
-            <City key={city.name} date={date} {...city} />
+            <City
+              key={city.name}
+              date={date}
+              {...city}
+            />
           ))
         }
 

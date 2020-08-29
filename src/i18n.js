@@ -8,20 +8,42 @@ i18n
     resources: {
       en: {
         translations: {
-          Title: 'Title',
+          'Local Time': 'Local Time',
         },
       },
-      pt_br: {
+      pt: {
         translations: {
-          Title: 'Título',
-          Config: 'Configurações',
-          Media: 'Mídia',
-          Orientation: 'Orientação',
+          'Local Time': 'Hora Local',
+        },
+      },
+      fr: {
+        translations: {
+          'Local Time': 'Heure Locale',
+        },
+      },
+      es: {
+        translations: {
+          'Local Time': 'Hora Local',
+        },
+      },
+      de: {
+        translations: {
+          'Local Time': 'Ortszeit',
+        },
+      },
+      nl: {
+        translations: {
+          'Local Time': 'Lokale Tijd',
+        },
+      },
+      it: {
+        translations: {
+          'Local Time': 'Ora Locale',
         },
       },
     },
     fallbackLng: 'en',
-    debug: true,
+    debug: false,
 
     // have a common namespace used around the full app
     ns: ['translations'],

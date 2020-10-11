@@ -16,6 +16,7 @@ import {
 import "./main.sass";
 
 import Clock from "../clock/clock";
+import Brand from "../brand/brand";
 
 function Main() {
   const config = useConfig();
@@ -29,9 +30,6 @@ function Main() {
   const wCitieslist = times.world_cities;
 
   const { t, i18n } = useTranslation();
-  const brandImage = useTemplateVal("brand_image", "../../images/logo-01.png");
-  const bgClockColor = useTemplateVal("bg_clock_color", "#000000");
-
 
   i18n.changeLanguage(locale);
 
@@ -51,7 +49,6 @@ function Main() {
       </div>
       <div className="city">
         <FitText>{wCitieslist.wName}</FitText>
-        
       </div>
       <div className="date">
         <FitText className="time">
@@ -62,12 +59,9 @@ function Main() {
   ));
 
   return (
-    <div className="main" style={{backgroundColor:bgClockColor}}>
+    <div className={`main ${useTemplateVal('theme')}`}>
       <div className="ds-container">
-        <div className="ds-grid-item brand-box ds-center hidden-square">
-          <div className="brand " style={{ backgroundImage: `url(${brandImage})`}}></div>
-        </div>
-
+        <Brand className={useTemplateVal('brand_image') !== undefined ? "brand" : "hidden"} />
         <div className="ds-grid-item">
           <div className="clock-box current-location">
             <Clock className="local-timezone" utcVal={cUtcOffset} />

@@ -54,6 +54,11 @@ var dsplay_media = {
                 id: 6,
                 wName:   "Happy Valley-Goose Bay - CA",
                 wUtcOffset:    "-03:00"
+            },
+            {
+                id: 7,
+                wName:   "Tegucigalpa - HN",
+                wUtcOffset:    "-06:00"
             }
         ]
     },
@@ -68,10 +73,10 @@ var dsplay_template = {
 
     logo: '../test-assets/dsplay-logo.png',
 
-    brand_image: "../test-assets/logo-01.png",
+    brand_image: "",
 
     title: "My Super Template",
     expanded: "false",
-    bg_clock_color: "#000000",
+    theme: "dark"
 
 };

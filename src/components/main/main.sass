@@ -131,11 +131,12 @@
 
 .portrait
     .ds-grid-item
-        height: 25vh
+        height: 20vh
         width: 50vw
-        margin-bottom: 1.5vh
+        margin-top: 1.5vh
     .brand-box
         @include portraitBrand
+        height: 8vh
     .clock-box
         margin-bottom: 1vh
     .city
@@ -149,6 +150,11 @@
         -webkit-align-self: center
         -ms-flex-item-align: center
         align-self: center
+    .city
+        height: 13%      
+    .date
+        height: 10%
+        margin-top: .3vh
     .ds-center
         @include dsAlignCenter
     .hidden-portrait
@@ -167,15 +173,32 @@
         @include hidden
 
 .h-banner
+    .ds-grid-item
+        height: 95vh
+        width: 10vw
+        margin-top: 2vh
+    .brand-box
+        display: none
     .clock-box
-    .city
+    .city,
     .date
+        display: none
     .brand
+    .hidden-h-banner
+        @include hidden
 
 .v-banner
+    .ds-grid-item
+        height: 10vh
+        width: 95vw
+    .brand-box
+        display: none
     .clock-box
     .city
+        margin: 1vh 1vw
+        width: 95vw
     .date
+        display: none
     .brand
 
 

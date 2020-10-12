@@ -1,81 +1,66 @@
-import React from "react";
-import { useTranslation } from "react-i18next";
-import moment from "moment";
-
+import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import moment from 'moment';
 import {
-  FitText,
   useMedia,
-  useConfig,
-  useTemplate,
   useTemplateVal,
-  useTemplateBoolVal,
-  useTemplateIntVal,
-  useTemplateFloatVal,
-  useScreenInfo,
-} from "@dsplay/react-template-utils";
-import "./main.sass";
-
-import Clock from "../clock/clock";
-import Brand from "../brand/brand";
+  useInterval,
+} from '@dsplay/react-template-utils';
+import City from '../city/city';
+import useLanguage from '../../hooks/use-language';
+import './main.sass';
 
 function Main() {
-  const config = useConfig();
-  const media = useMedia();
-  const template = useTemplate();
-  const { screenFormat } = useScreenInfo();
-
-  const { locale } = config;
-  const { times } = media;
-
-  const wCitieslist = times.world_cities;
-
   const { t, i18n } = useTranslation();
-
-  i18n.changeLanguage(locale);
+  const language = useLanguage();
+  useEffect(() => {
+    i18n.changeLanguage(language);
+  }, [i18n, language]);
 
   const {
-    times: {
-      current: { cName, cUtcOffset },
-      world_cities: [{ wName, wUtcOffset }],
+    result: {
+      data: {
+        worldCities,
+      },
     },
-  } = media;
+  } = useMedia();
 
-  const date = moment();
+  const brandImage = useTemplateVal('brand_image');
+  const bgClockColor = useTemplateVal('bg_clock_color', '#000000');
 
-  const worldCitieslist = wCitieslist.map((wCitieslist) => (
-    <div className="ds-grid-item" key={wCitieslist.id}>
-      <div className="clock-box">
-        <Clock className="the-clock" utcVal={wCitieslist.wUtcOffset} />
-      </div>
-      <div className="city">
-        <FitText>{wCitieslist.wName}</FitText>
-      </div>
-      <div className="date">
-        <FitText className="time">
-          {date.utcOffset(wCitieslist.wUtcOffset).format("YYYY-MM-DD hh:mm:ss a")}
-        </FitText>
-      </div>
-    </div>
-  ));
+  const [date, setDate] = useState(moment());
+
+  useInterval(() => setDate(moment()), 1000);
 
   return (
     <div className={`main ${useTemplateVal('theme')}`}>
       <div className="ds-container">
-        <Brand className={useTemplateVal('brand_image') !== undefined ? "brand" : "hidden"} />
-        <div className="ds-grid-item">
-          <div className="clock-box current-location">
-            <Clock className="local-timezone" utcVal={cUtcOffset} />
+
+        {
+          brandImage
+          && (
+          <div className="ds-grid-item brand-box ds-center hidden-square">
+            <div className="brand " style={{ backgroundImage: `url(${brandImage})` }} />
           </div>
-          <div className="city">
-            <FitText>{cName}</FitText>
-          </div>
-          <div className="date">
-            <FitText>
-              {date.utcOffset(cUtcOffset).format("YYYY-MM-DD hh:mm:ss a")}
-            </FitText>
-          </div>
-        </div>
-        {worldCitieslist}
+          )
+        }
+
+        <City
+          date={date}
+          name={t('Local Time')}
+          clockClassName="local-timezone"
+        />
+
+        {
+          worldCities.map((city) => (
+            <City
+              key={city.name}
+              date={date}
+              {...city}
+            />
+          ))
+        }
+
       </div>
     </div>
   );

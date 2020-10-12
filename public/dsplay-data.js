@@ -69,14 +69,7 @@ var dsplay_template = {
     cities : {
         
     },
-    template_var: "My Template Var",
-
-    logo: '../test-assets/dsplay-logo.png',
-
-    brand_image: "",
-
-    title: "My Super Template",
-    expanded: "false",
-    theme: "dark"
+    // brand_image: "../test-assets/logo-01.png",
+    theme: "light"
 
 };

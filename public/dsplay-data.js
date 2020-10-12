@@ -67,9 +67,5 @@ var dsplay_template = {
 
   // brand_image: "../test-assets/logo-01.png",
   brand_image: '',
-
-  title: "My Super Template",
-  expanded: "false",
-  bg_clock_color: "#000000",
-
+  theme: 'light',
 };

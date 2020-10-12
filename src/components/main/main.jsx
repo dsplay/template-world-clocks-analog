@@ -33,7 +33,7 @@ function Main() {
   useInterval(() => setDate(moment()), 1000);
 
   return (
-    <div className="main" style={{ backgroundColor: bgClockColor }}>
+    <div className={`main ${useTemplateVal('theme')}`}>
       <div className="ds-container">
 
         {

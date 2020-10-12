@@ -9,10 +9,12 @@
     -o-background-size: cover
     background-size: cover
 
-.app
+.app, .main
     padding: 0 !important
     margin: 0 !important
     overflow: hidden
+    width: 100vw
+    height: 100vh
 
 @mixin dsContainer
     display: -ms-flexbox
@@ -125,12 +127,13 @@
     .brand
         width: 30vh
         height: 30vh
-        margin: 5vw
+        margin: 2vh 4vw
 
 .portrait
     .ds-grid-item
         height: 25vh
         width: 50vw
+        margin-bottom: 1.5vh
     .brand-box
         @include portraitBrand
     .clock-box
@@ -138,8 +141,8 @@
     .city
     .date
     .brand
-        height: 20vh
-        width: 50vw
+        height: 21vh
+        width: 55vw
         -webkit-flex: 1 1 auto
         -ms-flex: 1 1 auto
         flex: 1 1 auto
@@ -176,4 +179,12 @@
     .brand
 
 
-//CLOCK STYLES
+//CLOCK THEMES
+.dark
+    background-color: #000000
+.light
+    background-color:  #E9E8E2
+    .clock-container
+    .city,
+    .date
+        color: #151618

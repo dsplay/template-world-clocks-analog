@@ -25,7 +25,8 @@ function Main() {
     },
   } = useMedia();
 
-  const brandImage = useTemplateVal('brand_image');
+  const brandImage = useTemplateVal('brand');
+  const background = useTemplateVal('background');
   const bgClockColor = useTemplateVal('bg_clock_color', '#000000');
 
   const [date, setDate] = useState(moment());
@@ -33,7 +34,9 @@ function Main() {
   useInterval(() => setDate(moment()), 1000);
 
   return (
-    <div className={`main ${useTemplateVal('theme')}`}>
+    <div className={`main ${useTemplateVal('theme')}`}
+    style={{ backgroundImage: `url(${background})` }} 
+    >
       <div className="ds-container">
 
         {

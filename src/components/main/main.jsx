@@ -2,68 +2,65 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import moment from 'moment';
 import {
-  useMedia,
   useTemplateVal,
   useInterval,
+  useScreenInfo,
 } from '@dsplay/react-template-utils';
 import City from '../city/city';
 import useLanguage from '../../hooks/use-language';
 import './main.sass';
+import { LOCAL_CITY } from '../../utils/contants';
 
-function Main() {
+function Main({
+  tasksResults: [
+    cities,
+  ],
+}) {
   const { t, i18n } = useTranslation();
   const language = useLanguage();
   useEffect(() => {
     i18n.changeLanguage(language);
   }, [i18n, language]);
 
-  const {
-    result: {
-      data: {
-        worldCities,
-      },
-    },
-  } = useMedia();
+  const { screenFormat } = useScreenInfo();
 
   const brandImage = useTemplateVal('brand');
   const background = useTemplateVal('background');
-  const bgClockColor = useTemplateVal('bg_clock_color', '#000000');
 
   const [date, setDate] = useState(moment());
 
   useInterval(() => setDate(moment()), 1000);
 
   return (
-    <div className={`main ${useTemplateVal('theme')}`}
-    style={{ backgroundImage: `url(${background})` }} 
-    >
-      <div className="ds-container">
+    <div className={`app fade-in ${screenFormat}`}>
+      <div
+        className={`main ${useTemplateVal('theme')}`}
+        style={{ backgroundImage: `url(${background})` }}
+      >
+        <div className="ds-container">
 
-        {
-          brandImage
-          && (
-          <div className="ds-grid-item brand-box ds-center hidden-square">
-            <div className="brand " style={{ backgroundImage: `url(${brandImage})` }} />
-          </div>
-          )
-        }
+          {
+            brandImage
+            && (
+              <div className="ds-grid-item brand-box ds-center hidden-square">
+                <div className="brand " style={{ backgroundImage: `url(${brandImage})` }} />
+              </div>
+            )
+          }
 
-        <City
-          date={date}
-          name={t('Local Time')}
-          clockClassName="local-timezone"
-        />
+          {
+            cities.map((city) => (
+              <City
+                key={city.name}
+                {...city}
+                date={date}
+                clockClassName={city.name === LOCAL_CITY ? 'local-timezone' : ''}
+                name={city.name === LOCAL_CITY ? t('Local Time') : city.name}
+              />
+            ))
+          }
 
-        {
-          worldCities.map((city) => (
-            <City
-              key={city.name}
-              date={date}
-              {...city}
-            />
-          ))
-        }
-
+        </div>
       </div>
     </div>
   );

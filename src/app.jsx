@@ -1,9 +1,10 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { I18nextProvider } from 'react-i18next';
-import { Loader, useScreenInfo, useTemplateVal } from '@dsplay/react-template-utils';
+import { Loader, useTemplateVal } from '@dsplay/react-template-utils';
 import Intro from './components/intro/intro';
 import Main from './components/main/main';
 import i18n from './i18n';
+import { loadData } from './services/wordtime';
 import './app.sass';
 
 // console.log(U, Loader)
@@ -22,12 +23,23 @@ const fonts = [
   'Oswald',
 ];
 
+function useCities(v, i) {
+  return useTemplateVal(`city_${i + 1}`);
+}
+
 function App() {
-  const { screenFormat } = useScreenInfo();
-  const logo = useTemplateVal('logo');
+  const brand = useTemplateVal('brand');
+  const bg = useTemplateVal('background');
 
   // images to preload
-  const images = useMemo(() => [logo], [logo]);
+  const images = [brand, bg];
+
+  const cities = new Array(8).fill(1).map(useCities).filter((city) => city);
+
+  // other tasks (Promises) to run during template intro
+  const tasks = [
+    loadData(cities),
+  ];
 
   return (
     <I18nextProvider i18n={i18n}>
@@ -36,10 +48,9 @@ function App() {
         fonts={fonts}
         images={images}
         minDuration={MIN_LOADING_DURATION}
+        tasks={tasks}
       >
-        <div className={`app fade-in ${screenFormat}`}>
-          <Main />
-        </div>
+        <Main />
       </Loader>
     </I18nextProvider>
   );

@@ -49,9 +49,9 @@ function Main({
           }
 
           {
-            cities.map((city) => (
+            cities.map((city, i) => (
               <City
-                key={city.name}
+                key={`${city.name}:${i}`}
                 {...city}
                 date={date}
                 clockClassName={city.name === LOCAL_CITY ? 'local-timezone' : ''}

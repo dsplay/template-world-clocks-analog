@@ -49,6 +49,7 @@ function Main({
           }
 
           {
+            /* eslint-disable react/no-array-index-key */
             cities.map((city, i) => (
               <City
                 key={`${city.name}:${i}`}

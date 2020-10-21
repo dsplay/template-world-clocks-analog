@@ -17,7 +17,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "prebuildxxx": "npm run linter",
+    "prebuild": "npm run linter",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "linter": "eslint --ext=js --ext=jsx src",

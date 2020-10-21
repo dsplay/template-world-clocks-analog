@@ -131,11 +131,12 @@
 
 .portrait
     .ds-grid-item
-        height: 25vh
+        height: 20vh
         width: 50vw
-        margin-bottom: 1.5vh
+        margin-top: 1.5vh
     .brand-box
         @include portraitBrand
+        height: 8vh
     .clock-box
         margin-bottom: 1vh
     .city
@@ -149,6 +150,11 @@
         -webkit-align-self: center
         -ms-flex-item-align: center
         align-self: center
+    .city
+        height: 13%      
+    .date
+        height: 10%
+        margin-top: .3vh
     .ds-center
         @include dsAlignCenter
     .hidden-portrait
@@ -167,24 +173,57 @@
         @include hidden
 
 .h-banner
+    .ds-grid-item
+        height: 95vh
+        width: 10vw
+        margin-top: 2vh
+    .brand-box
+        display: none
     .clock-box
-    .city
+    .city,
     .date
+        display: none
     .brand
+    .hidden-h-banner
+        @include hidden
 
 .v-banner
+    .ds-grid-item
+        height: 10vh
+        width: 95vw
+    .brand-box
+        display: none
     .clock-box
     .city
+        margin: 1vh 1vw
+        width: 95vw
     .date
+        display: none
     .brand
 
 
 //CLOCK THEMES
 .dark
-    background-color: #000000
+    background-color: #0f0f0f
+
 .light
     background-color:  #E9E8E2
     .clock-container
     .city,
     .date
         color: #151618
+    .local-timezone #clock
+        background-color: #8d8d8d
+        .background-numbers .numbers
+            fill: #ffffff
+
+.sky
+    background-color:  #489fc2
+    .clock-container
+    .city,
+    .date
+        color: #ffffff
+    .local-timezone #clock
+        background-color: #ffae00
+        .background-numbers .numbers
+            fill: #ffffff

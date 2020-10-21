@@ -65,7 +65,7 @@ var dsplay_template = {
 
   // logo: '../test-assets/dsplay-logo.png',
 
-  // brand_image: "../test-assets/logo-01.png",
-  brand_image: '',
-  theme: 'light',
+  brand: "../test-assets/logo-01.png",
+  theme: 'sky',
+  //background: '../test-assets/back.jpg',
 };

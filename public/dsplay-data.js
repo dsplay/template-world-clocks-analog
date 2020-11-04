@@ -20,9 +20,9 @@ var dsplay_template = {
   city_4: 'London',
   city_5: 'Tokyo',
   city_6: 'Cairo',
-  city_7: 'Local',
-  // city_8: 'New York',
-  // brand: "../test-assets/logo-01.png",
-  // theme: 'sky',
+  city_7: 'Bangladesh',
+  city_8: 'New York',
+  brand: "../test-assets/logo-01.png",
+  theme: 'sky',
   background: '../test-assets/back.jpg',
 };

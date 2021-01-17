@@ -23,6 +23,6 @@ var dsplay_template = {
   city_7: 'Bangladesh',
   city_8: 'New York',
   brand: "../test-assets/logo-01.png",
-  theme: 'sky',
-  background: '../test-assets/back.jpg',
+  theme: 'dark',
+  background: '../test-assets/back-black.jpg',
 };

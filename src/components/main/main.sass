@@ -43,6 +43,10 @@
     -webkit-align-self: stretch
     -ms-flex-item-align: stretch
     align-self: stretch
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
 
 @mixin dsAlignCenter
     display: -ms-flexbox
@@ -71,8 +75,9 @@
     width: 100vw
 
 @mixin portraitBrand
-    width: 100vw
+    width: 50vw
     height: 20vh
+    padding: 5vw
 
 @mixin hidden
     display: none
@@ -87,9 +92,13 @@
     height: 50vh
     width: 25vw
 
+
 //DEFAULT TEMPLATE STYLES
+.brand-box
+  box-sizing: border-box
+
 .clock-box
-    width: 100%
+    width: 60%
     //background-color: #f801ae //-----------> debug
 .city
     font-family: 'Oswald'
@@ -104,8 +113,8 @@
     font-family: 'Roboto Condensed'
     color: #888
 .brand
-    height: 100vh
-    width: 100vw
+    height: 100%
+    width: 100%
     background: no-repeat center center local
     -webkit-background-size: contain
     -moz-background-size: contain
@@ -124,26 +133,32 @@
     .city
         margin-top: 2vh
     .date
+    .brand-box
+        width: 25vw
+        height: 40vh
+        padding: 5vh
     .brand
-        width: 30vh
-        height: 30vh
-        margin: 2vh 4vw
+        width: 100%
+        height: 100%
+        // margin: 2vh 4vw
 
 .portrait
+    .ds-container 
+        align-items: flex-start
     .ds-grid-item
         height: 20vh
         width: 50vw
         margin-top: 1.5vh
     .brand-box
         @include portraitBrand
-        height: 8vh
     .clock-box
         margin-bottom: 1vh
+        width: 50%
     .city
     .date
     .brand
-        height: 21vh
-        width: 55vw
+        height: 100%
+        width: 100%
         -webkit-flex: 1 1 auto
         -ms-flex: 1 1 auto
         flex: 1 1 auto
@@ -165,22 +180,31 @@
         @include dsGrid50
         height: 50vh
     .clock-box
-        padding-top: 5vh
+        padding-top: 0vh
+        width: 50%
     .city
     .date
+    .brand-box
+        width: 50vw
+        height: 50vw
+        padding: 5vh
     .brand
     .hidden-square
         @include hidden
 
 .h-banner
+    .ds-container 
+        justify-content: space-evenly
     .ds-grid-item
-        height: 95vh
-        width: 10vw
-        margin-top: 2vh
+        height: 80vh
+        width: 80vh
+        // margin-top: 2vh auto
     .brand-box
-        display: none
+        // display: none
     .clock-box
-    .city,
+      width: 80%
+    .city
+        height: 25%
     .date
         display: none
     .brand
@@ -188,15 +212,20 @@
         @include hidden
 
 .v-banner
+    .ds-container 
+        flex-direction: column
+        justify-content: space-evenly
     .ds-grid-item
         height: 10vh
         width: 95vw
     .brand-box
-        display: none
+        // display: none
     .clock-box
+      width: 80%
     .city
         margin: 1vh 1vw
         width: 95vw
+        height: 25vw
     .date
         display: none
     .brand

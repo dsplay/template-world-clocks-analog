@@ -1,6 +1,6 @@
 import React from 'react';
 import { I18nextProvider } from 'react-i18next';
-import { Loader, useTemplateVal } from '@dsplay/react-template-utils';
+import { Loader, useTemplateVal, useScreenInfo } from '@dsplay/react-template-utils';
 import Intro from './components/intro/intro';
 import Main from './components/main/main';
 import i18n from './i18n';
@@ -41,6 +41,8 @@ function App() {
     loadData(cities),
   ];
 
+  const { screenFormat } = useScreenInfo();
+
   return (
     <I18nextProvider i18n={i18n}>
       <Loader
@@ -50,7 +52,9 @@ function App() {
         minDuration={MIN_LOADING_DURATION}
         tasks={tasks}
       >
-        <Main />
+        <div className={`app fade-in ${screenFormat}`}>
+          <Main />
+        </div>
       </Loader>
     </I18nextProvider>
   );

@@ -22,7 +22,7 @@ var dsplay_template = {
   city_6: 'Cairo',
   city_7: 'Bangladesh',
   city_8: 'New York',
-  brand: "../test-assets/logo-01.png",
-  theme: 'dark',
-  background: '../test-assets/back-black.jpg',
+  // brand: "../test-assets/logo-01.png",
+  theme: 'light',
+  // background: '../test-assets/back-black.jpg',
 };

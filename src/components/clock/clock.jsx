@@ -23,10 +23,10 @@ const Clock = ({
   };
 
   return (
-    <div className={className}>
-      <div>
-        <div className="clock-container styling">
-          <div id="clock" className="clock-content">
+    <div className={`fill-parent ${className}`}>
+      <div className="fill-parent">
+        <div className="clock-container styling fill-parent">
+          <div id="clock" className="clock-content fill-parent">
             <svg className="background-numbers" viewBox="0 0 226.6 233.8">
               <path
                 className="numbers"

@@ -27,6 +27,8 @@ function Main({
   const brandImage = useTemplateVal('brand');
   const background = useTemplateVal('background');
 
+  const maxCities = brandImage ? 7 : 8;
+
   const [date, setDate] = useState(moment());
 
   useInterval(() => setDate(moment()), 1000);
@@ -50,7 +52,9 @@ function Main({
 
           {
             /* eslint-disable react/no-array-index-key */
-            cities.map((city, i) => (
+
+            cities.slice(0, maxCities - 1).map((city, i) => (
+
               <City
                 key={`${city.name}:${i}`}
                 {...city}
@@ -59,6 +63,7 @@ function Main({
                 name={city.name === LOCAL_CITY ? t('Local Time') : city.name}
               />
             ))
+
           }
 
         </div>

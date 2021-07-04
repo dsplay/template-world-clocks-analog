@@ -134,7 +134,7 @@ export default {
   // "America/Santarem",
   // "America/Santiago",
   // "America/Santo_Domingo",
-  // "America/Sao_Paulo",
+  'São Paulo': 'America/Sao_Paulo',
   // "America/Scoresbysund",
   // "America/Sitka",
   // "America/St_Johns",

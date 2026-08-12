@@ -1,5 +1,3 @@
-/* eslint-disable no-console, import/no-mutable-exports */
-
 export function setWithExpiry(key, value, ttl = 99999999999) {
   try {
     // `item` is an object which contains the original value
@@ -10,7 +8,7 @@ export function setWithExpiry(key, value, ttl = 99999999999) {
     };
     localStorage.setItem(key, JSON.stringify(item));
   } catch (e) {
-    console.log('error storing data in localStorage', e);
+    console.error('error storing data in localStorage', e);
   }
 }
 
@@ -34,7 +32,7 @@ export function getWithExpiry(key) {
     }
     return item.value;
   } catch (e) {
-    console.log('error retrieving data from localStorage', e);
+    console.error('error retrieving data from localStorage', e);
   }
 
   return undefined;

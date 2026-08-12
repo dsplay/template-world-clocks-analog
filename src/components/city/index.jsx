@@ -1,8 +1,8 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import moment from 'moment';
 import { FitText } from '@dsplay/react-template-utils';
 import useLanguage from '../../hooks/use-language';
-import Clock from '../clock/clock';
+import Clock from '../clock';
 
 function City({
   clockClassName = '',

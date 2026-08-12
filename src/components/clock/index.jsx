@@ -1,5 +1,4 @@
-import React from 'react';
-import './clock.sass';
+import './style.sass';
 
 const Clock = ({
   className = '',
@@ -64,7 +63,6 @@ const Clock = ({
             <div className="indicator-cover" />
           </div>
         </div>
-        {/* <div className="digital"> {date.toLocaleTimeString()}</div> */}
       </div>
     </div>
   );

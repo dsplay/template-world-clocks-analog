@@ -22,7 +22,7 @@ var dsplay_template = {
   city_6: 'Cairo',
   city_7: 'Bangladesh',
   city_8: 'New York',
-  // brand: "../test-assets/logo-01.png",
+  brand: "https://developers.dsplay.tv/assets/images/dsplay-logo.png",
   theme: 'light',
-  // background: '../test-assets/back-black.jpg',
+  background: 'https://upload.wikimedia.org/wikipedia/commons/1/1f/White_stone_brick_wall.jpg',
 };

@@ -6,6 +6,18 @@ A [React](https://reactjs.org/) [HTML-based template](https://developers.dsplay.
 
 > Built with [Vite](https://vitejs.dev/), requires Node.js 22.22.2+, 24.15.0+, or 26+ (see `.nvmrc`).
 
+## Supported screen formats
+
+| Landscape | Portrait | Square |
+|-----------|----------|--------|
+| ![Landscape](docs/screenshots/landscape.png) | ![Portrait](docs/screenshots/portrait.png) | ![Square](docs/screenshots/square.png) |
+
+| Horizontal banner | Vertical banner |
+|--------------------|-------------------|
+| ![Horizontal Banner](docs/screenshots/h-banner.png) | ![Vertical Banner](docs/screenshots/v-banner.png) |
+
+> The clock count shown adapts per format (`src/components/main/index.jsx`): square drops to 3 clocks (fewer, larger) to stay legible, while the banner formats show one extra clock and hide the date/time text line to fit the reduced height/width.
+
 ## Template variables
 
 | Key                 | Type   | Description                                                                                     |
